@@ -3,12 +3,12 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { first, map } from 'rxjs/operators';
-import { Structure } from '../models/structure.model';
 import { User } from '../models/user.model';
 import { AuthService } from '../services/auth.service';
 import { StructureService } from '../services/structure.service';
-import { ButtonType } from '../shared/components/button/buttonType.enum';
 import { CustomRegExp } from '../utils/CustomRegExp';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
+import {Structure} from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-login',

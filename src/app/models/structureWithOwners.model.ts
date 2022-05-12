@@ -1,5 +1,5 @@
 import { Owner } from './owner.model';
-import { Structure } from './structure.model';
+import {Structure} from '@gouvfr-anct/mediation-numerique';
 
 export class StructureWithOwners {
   structure: Structure;

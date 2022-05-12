@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { ButtonType } from '../../../../shared/components/button/buttonType.enum';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
 
 @Component({
   selector: 'app-navigation-buttons',

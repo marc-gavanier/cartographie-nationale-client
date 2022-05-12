@@ -1,0 +1,28 @@
+<div
+  *ngIf="!profileService.isLinkedToStructure(structure._id)"
+  class="clickableDiv"
+  role="button"
+  (click)="handleJoin()"
+  tabindex="0">
+  <app-svg-icon class="icon" [type]="'ico'" [icon]="'workhere'" [iconClass]="'icon-32'"></app-svg-icon>
+  <div class="iconTitle">Je travaille ici</div>
+</div>
+<div
+  *ngIf="profileService.isLinkedToStructure(structure._id) || profileService.isAdmin()"
+  class="clickableDiv"
+  role="button"
+  (click)="handleModify()"
+  tabindex="0">
+  <app-svg-icon class="icon" [type]="'ico'" [icon]="'modifyStructure'" [iconClass]="'icon-32'"></app-svg-icon>
+  <div class="iconTitle">Modifier cette structure</div>
+</div>
+<div *ngIf="profileService.isAdmin()" class="structure-details-block hide-on-print">
+  Administrateur(s) de cette structure:
+  <div *ngIf="structureAdmins.length === 0">Aucun administrateur</div>
+  <div *ngIf="structureAdmins.length > 0">
+    <div *ngFor="let structureAdmin of structureAdmins">
+      {{ structureAdmin.email }}
+    </div>
+  </div>
+  <a (click)="toggleDeleteModal.emit()" class="primary" tabindex="0">Supprimer cette structure</a>
+</div>

@@ -4,7 +4,6 @@ import { ProfileService } from './profile/services/profile.service';
 import { AuthService } from './services/auth.service';
 import { RouterListenerService } from './services/routerListener.service';
 import { UpdateService } from './services/update.service';
-import { PrintService } from './shared/service/print.service';
 import { WindowScrollService } from './shared/service/windowScroll.service';
 
 @Component({
@@ -16,7 +15,6 @@ export class AppComponent implements OnInit {
   title = 'pamn';
 
   constructor(
-    public printService: PrintService,
     private authService: AuthService,
     private profilService: ProfileService,
     private windowScrollService: WindowScrollService,

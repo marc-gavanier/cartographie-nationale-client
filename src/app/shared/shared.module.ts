@@ -5,29 +5,51 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedComponents } from './components';
 import { SharedPipes } from './pipes';
-import { SharedDirectives } from './directives';
-import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 import { AddressAutocompleteComponent } from './components/address-autocomplete/address-autocomplete.component';
 import { HourPickerComponent } from './components/hour-picker/hour-picker.component';
+import {
+  ButtonModule,
+  DayModule,
+  ModalModule,
+  PhoneModule,
+  SvgIconModule,
+  TextInputModalModule
+} from '@gouvfr-anct/mediation-numerique/shared';
+
 @NgModule({
-  imports: [CommonModule, FormsModule, RouterModule, FlexLayoutModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    ButtonModule,
+    SvgIconModule,
+    TextInputModalModule,
+    ModalModule,
+    DayModule,
+    PhoneModule
+  ],
   declarations: [
     ...SharedPipes,
     ...SharedComponents,
-    ...SharedDirectives,
-    SvgIconComponent,
     AddressAutocompleteComponent,
     HourPickerComponent,
   ],
   exports: [
     ...SharedPipes,
     ...SharedComponents,
-    ...SharedDirectives,
     CommonModule,
     RouterModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    ButtonModule,
+    SvgIconModule,
+    TextInputModalModule,
+    ModalModule,
+    DayModule,
+    PhoneModule
   ],
 })
 export class SharedModule {}

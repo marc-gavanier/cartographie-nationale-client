@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import * as _ from 'lodash';
 import { ActivatedRoute } from '@angular/router';
-import { PrintService } from '../../../../shared/service/print.service';
-import { Filter } from '../../../../structure-list/models/filter.model';
+import {Filter} from '@gouvfr-anct/mediation-numerique';
+
 @Component({
   selector: 'app-structure-print-header',
   templateUrl: './structure-print-header.component.html',
@@ -23,7 +22,7 @@ export class StructurePrintHeaderComponent implements OnInit {
   public equipments: Filter[] = [];
   public specificNeeds: Filter[] = [];
 
-  constructor(private printService: PrintService, private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {}
 
   async ngOnInit(): Promise<void> {
     this.date = new Date().toLocaleDateString('fr-FR', {

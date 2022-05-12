@@ -1,10 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Structure } from '../../../../models/structure.model';
-import { ButtonType } from '../../../../shared/components/button/buttonType.enum';
-import { Category } from '../../../../structure-list/models/category.model';
-import { Module } from '../../../../structure-list/models/module.model';
 import { SearchService } from '../../../../structure-list/services/search.service';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
+import {Category, Module} from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-personal-offer-accompaniment',

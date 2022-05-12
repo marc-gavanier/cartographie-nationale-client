@@ -10,7 +10,6 @@ import { AuthService } from '../../../services/auth.service';
 import { StructureService } from '../../../services/structure.service';
 import { CustomRegExp } from '../../../utils/CustomRegExp';
 import { FunctionTypeModalOptions } from '../../enum/functionTypeModalOptions.enum';
-import { MustMatch } from '../../validator/form';
 
 @Component({
   selector: 'app-structure-options-modal',
@@ -21,7 +20,7 @@ export class StructureOptionsModalComponent implements OnInit {
   // Global var
   @Input() public structure?: StructureWithOwners;
   @Input() public userProfile?: User;
-  @Input() public isEditFormView? = false;
+  @Input() public isEditFormView ? = false;
   @Output() closed = new EventEmitter();
   @Output() closedWithRefresh = new EventEmitter();
   public active: boolean;

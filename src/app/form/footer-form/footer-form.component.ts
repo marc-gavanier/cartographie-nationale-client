@@ -6,13 +6,13 @@ import { ProfileService } from '../../profile/services/profile.service';
 import { AuthService } from '../../services/auth.service';
 import { NewsletterService } from '../../services/newsletter.service';
 import { StructureService } from '../../services/structure.service';
-import { ButtonType } from '../../shared/components/button/buttonType.enum';
 import { Utils } from '../../utils/utils';
 import { accountFormStep } from '../form-view/account-form/accountFormStep.enum';
 import { formType } from '../form-view/formType.enum';
 import { personalOfferFormStep } from '../form-view/personal-offer-form/personalOfferFormStep.enum';
 import { profileFormStep } from '../form-view/profile-form/profileFormStep.enum';
 import { structureFormStep } from '../form-view/structure-form/structureFormStep.enum';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
 
 @Component({
   selector: 'app-footer-form',

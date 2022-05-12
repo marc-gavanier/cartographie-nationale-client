@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@
 import { FormGroup } from '@angular/forms';
 import { Employer } from '../../../../models/employer.model';
 import { ProfileService } from '../../../../profile/services/profile.service';
-import { ButtonType } from '../../../../shared/components/button/buttonType.enum';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
 
 @Component({
   selector: 'app-profile-employer-selection',

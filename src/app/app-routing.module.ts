@@ -12,8 +12,6 @@ import { ResetEmailComponent } from './reset-email/reset-email.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { TempUserResolver } from './resolvers/temp-user.resolver';
 import { StructureJoinComponent } from './structure-join/structure-join.component';
-import { StructureDetailsComponent } from './structure-list/components/structure-details/structure-details.component';
-import { StructureListComponent } from './structure-list/structure-list.component';
 import { NewsletterSubscriptionComponent } from './newsletter-subscription/newsletter-subscription.component';
 import { OrientationFormComponent } from './form/orientation-form/orientation-form.component';
 import { StructureListPrintComponent } from './form/orientation-form/component/structure-list-print/structure-list-print.component';
@@ -23,6 +21,7 @@ import { RouteRole } from './shared/enum/routeRole.enum';
 import { LoginComponent } from './login/login.component';
 import { PasswordFormComponent } from './shared/components';
 import { FooterComponent } from './footer/footer.component';
+import {StructureDetailsComponent} from '@gouvfr-anct/mediation-numerique';
 
 const footerOutletRoute: Route = {
   path: '',
@@ -61,16 +60,6 @@ const routes: Routes = [
       {
         path: '',
         component: LoginComponent,
-      },
-      footerOutletRoute,
-    ],
-  },
-  {
-    path: 'structures',
-    children: [
-      {
-        path: '',
-        component: StructureListComponent,
       },
       footerOutletRoute,
     ],

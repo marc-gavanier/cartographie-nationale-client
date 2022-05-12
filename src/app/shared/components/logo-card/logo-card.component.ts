@@ -1,6 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Demarches } from '../../enum/demarches.enum';
-import { Labels } from '../../enum/labels.emum';
+
+// todo: to remove
+export enum Labels {
+  passNumerique = 'Pass numérique',
+  maisonFranceService = 'Maison france service',
+  aidantsConnect = 'Aidants connect',
+  fabriqueDeTerritoire = 'Fabrique de territoire',
+  demarcheMetropolitaine = 'Démarches Métropolitaines',
+  pix = 'Évaluation des compétences numériques',
+  conseillerNumFranceServices = 'Conseiller numérique'
+}
 
 @Component({
   selector: 'app-logo-card',

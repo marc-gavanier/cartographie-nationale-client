@@ -5,7 +5,8 @@ import { ProfileService } from '../../../profile/services/profile.service';
 import { AuthService } from '../../../services/auth.service';
 import { CustomRegExp } from '../../../utils/CustomRegExp';
 import { MustMatch } from '../../validator/form';
-import { ButtonType } from '../button/buttonType.enum';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
+
 @Component({
   selector: 'app-password-form',
   templateUrl: './password-form.component.html',

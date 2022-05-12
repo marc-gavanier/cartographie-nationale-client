@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Category } from '../../../../structure-list/models/category.model';
+import {Category} from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-structure-access-modality',

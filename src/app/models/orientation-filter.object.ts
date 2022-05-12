@@ -1,6 +1,4 @@
-import { Category } from '../structure-list/models/category.model';
-import { Module } from '../structure-list/models/module.model';
-import { Address } from './address.model';
+import {Address, Category} from '@gouvfr-anct/mediation-numerique';
 
 export class OrientationFormFilters {
   specificProfile: Category;

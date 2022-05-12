@@ -3,11 +3,7 @@ import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { forkJoin, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Day } from '../../models/day.model';
-import { PersonalOffer } from '../../models/personalOffer.model';
-import { Structure } from '../../models/structure.model';
 import { StructureWithOwners } from '../../models/structureWithOwners.model';
-import { Time } from '../../models/time.model';
 import { User } from '../../models/user.model';
 import { ProfileService } from '../../profile/services/profile.service';
 import { PersonalOfferService } from '../../services/personal-offer.service';
@@ -19,6 +15,7 @@ import { formType } from './formType.enum';
 import { personalOfferFormStep } from './personal-offer-form/personalOfferFormStep.enum';
 import { profileFormStep } from './profile-form/profileFormStep.enum';
 import { structureFormStep } from './structure-form/structureFormStep.enum';
+import {Day, PersonalOffer, Structure, Time} from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-form-view',

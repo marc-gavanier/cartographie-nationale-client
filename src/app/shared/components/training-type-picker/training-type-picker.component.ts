@@ -1,9 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Category } from '../../../structure-list/models/category.model';
-import { Module } from '../../../structure-list/models/module.model';
 import { SearchService } from '../../../structure-list/services/search.service';
 import { cloneDeep, remove } from 'lodash';
-import { ButtonType } from '../button/buttonType.enum';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
+import {Category, Module} from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-training-type-picker',

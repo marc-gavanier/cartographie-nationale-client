@@ -1,9 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { StructureType } from '../../../models/structure-type.model';
-import { Structure } from '../../../models/structure.model';
 import { StructureTypeService } from '../../../services/structure-type.service';
-import { typeStructureEnum } from '../../enum/typeStructure.enum';
-import { ButtonType } from '../button/buttonType.enum';
+import { ButtonType } from '@gouvfr-anct/mediation-numerique/shared';
+import {typeStructureEnum} from '@gouvfr-anct/mediation-numerique';
 
 export enum structureTypes {
   public = 'Publique',

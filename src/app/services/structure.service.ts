@@ -6,15 +6,10 @@ import { map } from 'rxjs/operators';
 import * as _ from 'lodash';
 const { DateTime } = require('luxon');
 
-import { Structure } from '../models/structure.model';
-import { Day } from '../models/day.model';
-import { OpeningDay } from '../models/openingDay.model';
-import { Weekday } from '../structure-list/enum/weekday.enum';
-import { Time } from '../models/time.model';
-import { Filter } from '../structure-list/models/filter.model';
 import { User } from '../models/user.model';
 import { StructureWithOwners } from '../models/structureWithOwners.model';
 import { TempUser } from '../models/temp-user.model';
+import {Day, Filter, OpeningDay, Structure, Time, Weekday} from '@gouvfr-anct/mediation-numerique';
 
 @Injectable({
   providedIn: 'root',

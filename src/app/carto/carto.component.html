@@ -4,6 +4,7 @@
   </div>
   <div class="panes-container" fxLayout="row">
     <app-structure-list
+      #ref
       (searchEvent)="getStructures($event)"
       [structureList]="structures"
       [location]="currentLocation"
@@ -12,16 +13,49 @@
       [selectedStructure]="currentStructure"
       (updatedStructure)="updateStructures($event)"
       class="left-pane"
-      [ngClass]="{ mapPhone: isMapPhone == true }"
-      fxLayout="column"
-    ></app-structure-list>
+      [ngClass]="{ mapPhone: isMapPhone === true }"
+      fxLayout="column">
+      <div slot="structure-list-actions">
+        <app-button
+          tabindex="0"
+          (action)="addStructure()"
+          [text]="'Ajouter une structure'"
+          [style]="buttonTypeEnum.Secondary"
+          [extraClass]="'small-text'"></app-button>
+      </div>
+      <div slot="structure-list-elements">
+        <app-card
+          *ngFor="let structure of ref.structureList"
+          [structure]="structure"
+          [isClaimed]="((structureClaims | async) ?? [])[structure._id]"
+          (showDetails)="ref.showDetails($event)"
+          (hover)="ref.handleCardHover($event)"
+          class="structure-card"></app-card>
+      </div>
+      <app-structure-details
+        class="structureList-details"
+        *ngIf="ref.showStructureDetails"
+        [structure]="ref.structure"
+        (closeDetails)="ref.closeDetails()">
+        <app-structure-details-modals #modals
+          [structure]="ref.structure"
+          (claimChange)="updateClaim(ref.structure._id, $event)"
+          slot="structure-details-modals"></app-structure-details-modals>
+        <app-tcl-access [structure]="ref.structure" slot="structure-details-access"></app-tcl-access>
+        <app-structure-details-actions
+          [structure]="ref.structure"
+          (toggleDeleteModal)="modals.toggleDeleteModal()"
+          (toggleJoinModal)="modals.toggleJoinModal()"
+          (claimChange)="updateClaim(ref.structure._id, $event)"
+          slot="structure-details-actions"></app-structure-details-actions>
+      </app-structure-details>
+    </app-structure-list>
     <div class="btnSwitch">
       <app-button
         [style]="buttonTypeEnum.ButtonPhone"
         [text]="isMapPhone ? 'Liste' : 'Carte'"
         [iconBtn]="isMapPhone ? 'liste' : 'map-markerButtonPhone'"
-        (action)="switchMapList()"
-      ></app-button>
+        (action)="switchMapList()"></app-button>
     </div>
     <app-map
       [structures]="structures"
@@ -31,7 +65,6 @@
       [isMapPhone]="isMapPhone"
       [searchedValue]="searchedValue"
       class="right-pane"
-      [ngClass]="{ mapPhone: isMapPhone == true }"
-    ></app-map>
+      [ngClass]="{ mapPhone: isMapPhone === true }"></app-map>
   </div>
 </div>

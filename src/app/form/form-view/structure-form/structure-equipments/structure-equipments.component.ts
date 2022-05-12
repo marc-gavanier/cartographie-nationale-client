@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
-import { Module } from '../../../../structure-list/models/module.model';
+import {Module} from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-structure-equipments',

@@ -1,10 +1,17 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Structure } from '../../../../models/structure.model';
-import * as _ from 'lodash';
 import { TclService } from '../../../../services/tcl.service';
 import { TclStopPoint } from '../../../../models/tclStopPoint.model';
 import { AuthService } from '../../../../services/auth.service';
-import { AccessModality } from '../../../../structure-list/enum/access-modality.enum';
+import {Structure} from '@gouvfr-anct/mediation-numerique';
+
+// todo: to remove
+export enum AccessModality {
+  free = 'accesLibre',
+  numeric = 'telephoneVisio',
+  meetingOnly = 'uniquementSurRdv',
+  meeting = 'surRdv'
+}
+
 @Component({
   selector: 'app-structure-detail-print',
   templateUrl: './structure-detail-print.component.html',

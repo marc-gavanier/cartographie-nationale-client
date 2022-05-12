@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { Structure } from '../../../models/structure.model';
 import { StructureService } from '../../../services/structure.service';
+import {Structure} from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-data-share-consent',

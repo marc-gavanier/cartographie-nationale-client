@@ -1,10 +1,9 @@
 import { Component, Input, Output, EventEmitter, OnDestroy, OnChanges } from '@angular/core';
 import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Day } from '../../../models/day.model';
-import { Time } from '../../../models/time.model';
 import { WeekDayEnum } from '../../enum/weekDay.enum';
 import { CheckHours } from '../../validator/form';
-import { ButtonType } from '../button/buttonType.enum';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
+import {Day, Time} from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-hour-picker',

@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import * as _ from 'lodash';
-
-import { Structure } from '../models/structure.model';
 import { StructureService } from '../services/structure.service';
-import { Filter } from '../structure-list/models/filter.model';
-import { GeoJson } from '../map/models/geojson.model';
 import { GeojsonService } from '../services/geojson.service';
 import { CustomRegExp } from '../utils/CustomRegExp';
-import { ActivatedRoute } from '@angular/router';
-import { ButtonType } from '../shared/components/button/buttonType.enum';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
+import {Filter, GeoJson, Structure} from '@gouvfr-anct/mediation-numerique';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {AuthService} from '../services/auth.service';
+
+type StructureClaim = { [structureId: string]: boolean };
 
 @Component({
   selector: 'app-carto',
@@ -29,11 +30,18 @@ export class CartoComponent implements OnInit {
   public isMapPhone = false;
   public searchedValue = null;
   public buttonTypeEnum = ButtonType;
+
+  private _structureClaimsState: StructureClaim = {};
+  private _structureClaims: BehaviorSubject<StructureClaim> = new BehaviorSubject({});
+  public structureClaims: Observable<StructureClaim> = this._structureClaims.asObservable();
+
   constructor(
     private structureService: StructureService,
     private geoJsonService: GeojsonService,
     private activatedRoute: ActivatedRoute,
-    private meta: Meta
+    private meta: Meta,
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -74,6 +82,7 @@ export class CartoComponent implements OnInit {
             this.updateStructuresdistance(structures, this.userLongitude, this.userLatitude, false);
           } else {
             this.structures = null;
+            this._structureClaims.next({});
           }
         });
       }
@@ -84,6 +93,7 @@ export class CartoComponent implements OnInit {
           this.updateStructuresdistance(structures, this.userLongitude, this.userLatitude);
         } else {
           this.structures = null;
+          this._structureClaims.next({});
         }
       });
     }
@@ -102,12 +112,7 @@ export class CartoComponent implements OnInit {
    * @param lat user latitde
    * @param sortByDistance if set to `true`, structures data is sort by distance. Default value is `true`
    */
-  private updateStructuresdistance(
-    structures: Structure[],
-    lon: number,
-    lat: number,
-    sortByDistance: boolean = true
-  ): void {
+  private updateStructuresdistance(structures: Structure[], lon: number, lat: number, sortByDistance: boolean = true): void {
     Promise.all(
       structures.map((structure) => {
         if (this.geolocation) {
@@ -115,11 +120,17 @@ export class CartoComponent implements OnInit {
         }
         return this.structureService.updateOpeningStructure(structure);
       })
-    ).then((structureList) => {
+    ).then((structureList: Structure[]) => {
       if (sortByDistance) {
         structureList = _.sortBy(structureList, ['distance']);
       }
       this.structures = structureList;
+
+      for (const structure of this.structures) {
+        this._structureClaimsState[structure._id] = true;
+      }
+
+      this._structureClaims.next(this._structureClaimsState);
     });
   }
 
@@ -153,10 +164,7 @@ export class CartoComponent implements OnInit {
    * @param lat number
    */
   private getStructurePosition(structure: Structure, lon: number, lat: number): Structure {
-    structure.distance = parseInt(
-      this.geoJsonService.getDistance(structure.getLat(), structure.getLon(), lat, lon, 'M'),
-      10
-    );
+    structure.distance = parseInt(this.geoJsonService.getDistance(structure.getLat(), structure.getLon(), lat, lon, 'M'), 10);
     return structure;
   }
 
@@ -207,5 +215,22 @@ export class CartoComponent implements OnInit {
 
   public switchMapList(): void {
     this.isMapPhone = !this.isMapPhone;
+  }
+
+  public addStructure(): void {
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigateByUrl('/login');
+    } else {
+      this.router.navigateByUrl('/form/structure');
+    }
+  }
+
+  public isClaimed(structure): Observable<boolean> {
+    return this.structureService.isClaimed(structure._id, null);
+  }
+
+  public updateClaim(structureId: string, isClaim: boolean): void {
+    this._structureClaimsState[structureId] = isClaim;
+    this._structureClaims.next(this._structureClaimsState);
   }
 }

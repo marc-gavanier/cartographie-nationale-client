@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Structure } from '../../../../models/structure.model';
-import * as _ from 'lodash';
-import { Filter } from '../../../../structure-list/models/filter.model';
+import { Component, Input } from '@angular/core';
+import {Filter, Structure} from '@gouvfr-anct/mediation-numerique';
+
 @Component({
   selector: 'app-structure-list-print',
   templateUrl: './structure-list-print.component.html',

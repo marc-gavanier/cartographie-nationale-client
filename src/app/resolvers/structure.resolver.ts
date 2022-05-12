@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { Structure } from '../models/structure.model';
 import { StructureService } from '../services/structure.service';
+import {Structure} from '@gouvfr-anct/mediation-numerique';
 
 @Injectable()
 export class StructureResolver implements Resolve<Structure> {

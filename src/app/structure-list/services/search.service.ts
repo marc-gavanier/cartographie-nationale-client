@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Category } from '../models/category.model';
-import { Module } from '../models/module.model';
+import {Category, Module} from '@gouvfr-anct/mediation-numerique';
 
 @Injectable({
   providedIn: 'root',

@@ -12,12 +12,6 @@ import { CustomBreakPointsProvider } from './config/custom-breakpoint';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { SharedModule } from './shared/shared.module';
-import { MapModule } from './map/map.module';
-import { StructureListComponent } from './structure-list/structure-list.component';
-import { CardComponent } from './structure-list/components/card/card.component';
-import { StructureListSearchComponent } from './structure-list/components/structure-list-search/structure-list-search.component';
-import { StructureDetailsComponent } from './structure-list/components/structure-details/structure-details.component';
-import { ModalFilterComponent } from './structure-list/components/modal-filter/modal-filter.component';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { PageComponent } from './page/page.component';
 import { ContactComponent } from './contact/contact.component';
@@ -45,6 +39,17 @@ import { UpdateService } from './services/update.service';
 import { DataShareConsentComponent } from './shared/components/data-share-consent/data-share-consent.component';
 import { FormViewModule } from './form/form-view/form-view.module';
 import { LoginComponent } from './login/login.component';
+import {GeometryPolygonConfiguration, MapModule, StructureModule} from '@gouvfr-anct/mediation-numerique';
+import {GeojsonService} from './services/geojson.service';
+import {MarkerType} from './config/map/marker-type';
+import {ZoomLevel} from './config/map/zoomLevel.enum';
+import {InitialPosition} from './config/map/initial-position';
+import metropole from '../assets/geojson/metropole.json';
+import {SearchService} from './structure-list/services/search.service';
+import {StructureService} from './services/structure.service';
+import {TclAccessComponent} from './structure/components/tcl-access/tcl-access.component';
+import {StructureDetailsModalsComponent} from './structure/components/structure-details-modals/structure-details-modals.component';
+import {StructureDetailsActionsComponent} from './structure/components/structure-details-actions/structure-details-actions.component';
 
 @NgModule({
   declarations: [
@@ -52,11 +57,6 @@ import { LoginComponent } from './login/login.component';
     HeaderComponent,
     FooterComponent,
     CartoComponent,
-    StructureListComponent,
-    CardComponent,
-    StructureListSearchComponent,
-    ModalFilterComponent,
-    StructureDetailsComponent,
     LegalNoticeComponent,
     PageComponent,
     ContactComponent,
@@ -72,15 +72,19 @@ import { LoginComponent } from './login/login.component';
     DataShareConsentComponent,
     OrientationComponent,
     LoginComponent,
+    TclAccessComponent,
+    StructureDetailsModalsComponent,
+    StructureDetailsActionsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
-    MapModule,
+    MapModule.forRoot(metropole as GeometryPolygonConfiguration, ZoomLevel, InitialPosition, MarkerType, GeojsonService),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    StructureModule.forRoot(SearchService, StructureService),
     FormViewModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,

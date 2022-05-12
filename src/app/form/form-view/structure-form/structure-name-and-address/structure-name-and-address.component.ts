@@ -1,7 +1,6 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Address } from '../../../../models/address.model';
+import { Address } from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-structure-name-and-address',

@@ -5,9 +5,9 @@ import { User } from '../../models/user.model';
 import decode from 'jwt-decode';
 import { UserRole } from '../../shared/enum/userRole.enum';
 import { AuthService } from '../../services/auth.service';
-import { Structure } from '../../models/structure.model';
 import { Employer } from '../../models/employer.model';
 import { Job } from '../../models/job.model';
+import {Structure} from '@gouvfr-anct/mediation-numerique';
 
 @Injectable({
   providedIn: 'root',

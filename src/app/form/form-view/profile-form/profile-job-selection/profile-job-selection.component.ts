@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Job } from '../../../../models/job.model';
 import { ProfileService } from '../../../../profile/services/profile.service';
-import { ButtonType } from '../../../../shared/components/button/buttonType.enum';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
 
 @Component({
   selector: 'app-profile-job-selection',

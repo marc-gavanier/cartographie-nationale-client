@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Structure } from '../../models/structure.model';
+import {Structure} from '@gouvfr-anct/mediation-numerique';
 
 @Injectable({
   providedIn: 'root',

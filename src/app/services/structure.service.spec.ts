@@ -1,9 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { Day } from '../models/day.model';
-import { Structure } from '../models/structure.model';
-import { Time } from '../models/time.model';
-import { Week } from '../models/week.model';
+import {Day, Structure, Time, Week} from '@gouvfr-anct/mediation-numerique';
 import { StructureService } from './structure.service';
 const { DateTime } = require('luxon');
 

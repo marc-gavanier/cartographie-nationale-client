@@ -1,0 +1,16 @@
+<app-modal-confirmation
+  [openned]="deleteModalOpenned"
+  [content]="'Voulez-vous vraiment supprimer cette structure&nbsp;?'"
+  (closed)="deleteStructure($event)"></app-modal-confirmation>
+
+<app-modal-confirmation
+  [openned]="claimModalOpenned"
+  [content]="
+    'Voulez-vous vraiment revendiquer cette structure&nbsp;? Une demande sera envoyée à l\'administrateur pour validation'
+  "
+  (closed)="claimStructure($event)"></app-modal-confirmation>
+
+<app-modal-confirmation
+  [openned]="joinModalOpenned"
+  [content]="'Voulez-vous vraiment rejoindre cette structure&nbsp;? Une demande sera envoyée aux membres pour validation'"
+  (closed)="joinStructure($event)"></app-modal-confirmation>

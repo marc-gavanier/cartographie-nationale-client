@@ -1,0 +1,23 @@
+<div
+  *ngIf="tclStopPoints.length"
+  fxLayout="column"
+  class="structure-details-block noSeparator"
+  fxLayoutAlign="baseline baseline">
+  <h2>Accès</h2>
+  <div fxLayout="column wrap" fxLayoutGap="24px">
+    <div *ngFor="let tclStop of tclStopPoints | slice: 0:3">
+      {{ tclStop.name }}
+      <div fxLayout="row wrap" fxLayoutGap="16px">
+        <p *ngFor="let sub of tclStop.subLines">
+          <app-svg-icon [type]="'tcl'" [icon]="sub" [iconClass]="'icon-75'"></app-svg-icon>
+        </p>
+        <p *ngFor="let tram of tclStop.tramLines">
+          <app-svg-icon [type]="'tcl'" [icon]="tram" [iconClass]="'icon-75'"></app-svg-icon>
+        </p>
+        <p *ngFor="let bus of tclStop.busLines">
+          <app-svg-icon [type]="'tcl'" [icon]="bus" [iconClass]="'icon-75'"></app-svg-icon>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

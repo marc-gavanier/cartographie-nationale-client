@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ButtonType } from '../button/buttonType.enum';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
 
 @Component({
   selector: 'app-modal-confirmation',

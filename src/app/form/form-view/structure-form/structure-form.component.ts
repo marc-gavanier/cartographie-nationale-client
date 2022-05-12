@@ -1,14 +1,12 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Address } from '../../../models/address.model';
+import { AbstractControl, FormArray, FormControl, FormGroup } from '@angular/forms';
 import { User } from '../../../models/user.model';
 import { ProfileService } from '../../../profile/services/profile.service';
 import { CategoryEnum } from '../../../shared/enum/category.enum';
-import { Category } from '../../../structure-list/models/category.model';
-import { Module } from '../../../structure-list/models/module.model';
 import { SearchService } from '../../../structure-list/services/search.service';
 import { formType } from '../formType.enum';
 import { structureFormStep } from './structureFormStep.enum';
+import {Address, Category, Module} from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-structure-form',

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { PersonalOffer } from '@gouvfr-anct/mediation-numerique';
 import { Observable } from 'rxjs';
-import { PersonalOffer } from '../models/personalOffer.model';
 
 @Injectable({
   providedIn: 'root',

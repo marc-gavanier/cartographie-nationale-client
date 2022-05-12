@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { Address } from '../../../models/address.model';
+import { Address } from '@gouvfr-anct/mediation-numerique';
 import { AddressService } from '../../service/address.service';
 
 @Component({

@@ -1,23 +1,16 @@
-import { stringify } from '@angular/compiler/src/util';
-import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
-import { AbstractControl, Form, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Meta } from '@angular/platform-browser';
-import { GeoJson } from '../../map/models/geojson.model';
-import { Address } from '../../models/address.model';
 import { OrientationFormFilters } from '../../models/orientation-filter.object';
-import { Structure } from '../../models/structure.model';
 import { GeojsonService } from '../../services/geojson.service';
 import { RouterListenerService } from '../../services/routerListener.service';
 import { StructureService } from '../../services/structure.service';
 import { CategoryEnum } from '../../shared/enum/category.enum';
-import * as _ from 'lodash';
-import { Category } from '../../structure-list/models/category.model';
-import { Filter } from '../../structure-list/models/filter.model';
-import { Module } from '../../structure-list/models/module.model';
 import { SearchService } from '../../structure-list/services/search.service';
 import { PageTypeEnum } from './pageType.enum';
 import { Utils } from '../../utils/utils';
 import { CustomRegExp } from '../../utils/CustomRegExp';
+import {Address, Category, Filter, Module, Structure} from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-orientation-form',

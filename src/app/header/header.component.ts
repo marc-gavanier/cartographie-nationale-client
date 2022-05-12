@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Structure } from '../models/structure.model';
 import { ProfileService } from '../profile/services/profile.service';
 import { AuthService } from '../services/auth.service';
-import { ButtonType } from '../shared/components/button/buttonType.enum';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
+import {Structure} from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-header',

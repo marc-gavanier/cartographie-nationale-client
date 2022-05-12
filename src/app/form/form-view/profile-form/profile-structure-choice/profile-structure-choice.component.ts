@@ -1,10 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Structure } from '../../../../models/structure.model';
 import { ProfileService } from '../../../../profile/services/profile.service';
 import { StructureService } from '../../../../services/structure.service';
-import { ButtonType } from '../../../../shared/components/button/buttonType.enum';
-import { Filter } from '../../../../structure-list/models/filter.model';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
+import {Filter, Structure} from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-profile-structure-choice',

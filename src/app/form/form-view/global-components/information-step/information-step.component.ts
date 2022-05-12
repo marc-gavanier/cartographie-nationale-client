@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ButtonType } from '../../../../shared/components/button/buttonType.enum';
 import { accountFormStep } from '../../account-form/accountFormStep.enum';
 import { formType } from '../../formType.enum';
 import { personalOfferFormStep } from '../../personal-offer-form/personalOfferFormStep.enum';
 import { profileFormStep } from '../../profile-form/profileFormStep.enum';
 import { structureFormStep } from '../../structure-form/structureFormStep.enum';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
 
 @Component({
   selector: 'app-information-step',

@@ -1,6 +1,4 @@
-import { ButtonComponent } from './button/button.component';
 import { LogoCardComponent } from './logo-card/logo-card.component';
-import { SvgIconComponent } from './svg-icon/svg-icon.component';
 import { ValidatorFormComponent } from './validator-form/validator-form.component';
 import { CreateAccountFormComponent } from './create-account-form/create-account-form.component';
 import { AddressAutocompleteComponent } from './address-autocomplete/address-autocomplete.component';
@@ -12,15 +10,12 @@ import { RadioFormComponent } from './radio-form/radio-form.component';
 import { ModalConfirmationComponent } from './modal-confirmation/modal-confirmation.component';
 import { StructureOptionsModalComponent } from './structure-options-modal/structure-options-modal.component';
 import { ModalOptionsComponent } from './modal-options/modal-options.component';
-import { TextInputModalComponent } from './text-input-modal/text-input-modal.component';
 import { PasswordFormComponent } from './password-form/password-form.component';
 import { TrainingTypePickerComponent } from './training-type-picker/training-type-picker.component';
 
 // tslint:disable-next-line: max-line-length
 export {
   LogoCardComponent,
-  SvgIconComponent,
-  ButtonComponent,
   ValidatorFormComponent,
   CreateAccountFormComponent,
   AddressAutocompleteComponent,
@@ -32,7 +27,6 @@ export {
   ModalConfirmationComponent,
   StructureOptionsModalComponent,
   ModalOptionsComponent,
-  TextInputModalComponent,
   PasswordFormComponent,
   TrainingTypePickerComponent,
 };
@@ -40,8 +34,6 @@ export {
 // tslint:disable-next-line:variable-name
 export const SharedComponents = [
   LogoCardComponent,
-  SvgIconComponent,
-  ButtonComponent,
   ValidatorFormComponent,
   CreateAccountFormComponent,
   AddressAutocompleteComponent,
@@ -53,7 +45,6 @@ export const SharedComponents = [
   ModalConfirmationComponent,
   StructureOptionsModalComponent,
   ModalOptionsComponent,
-  TextInputModalComponent,
   PasswordFormComponent,
   TrainingTypePickerComponent,
 ];

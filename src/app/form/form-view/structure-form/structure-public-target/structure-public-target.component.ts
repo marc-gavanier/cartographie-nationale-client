@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ButtonType } from '../../../../shared/components/button/buttonType.enum';
-import { Category } from '../../../../structure-list/models/category.model';
+import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
+import {Category} from '@gouvfr-anct/mediation-numerique';
 
 @Component({
   selector: 'app-structure-public-target',
