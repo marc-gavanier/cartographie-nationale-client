@@ -9,6 +9,7 @@ import {ButtonType} from '@gouvfr-anct/mediation-numerique/shared';
 import {Filter, GeoJson, Structure} from '@gouvfr-anct/mediation-numerique';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {AuthService} from '../services/auth.service';
+import {ProfileService} from '../profile/services/profile.service';
 
 type StructureClaim = { [structureId: string]: boolean };
 
@@ -41,7 +42,8 @@ export class CartoComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private meta: Meta,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private profilService: ProfileService,
   ) {}
 
   ngOnInit(): void {
@@ -120,17 +122,13 @@ export class CartoComponent implements OnInit {
         }
         return this.structureService.updateOpeningStructure(structure);
       })
-    ).then((structureList: Structure[]) => {
+    ).then(async (structureList: Structure[]) => {
       if (sortByDistance) {
         structureList = _.sortBy(structureList, ['distance']);
       }
       this.structures = structureList;
 
-      for (const structure of this.structures) {
-        this._structureClaimsState[structure._id] = true;
-      }
-
-      this._structureClaims.next(this._structureClaimsState);
+      await this.setClaimIndicators(this.profilService.isAdmin());
     });
   }
 
@@ -231,6 +229,14 @@ export class CartoComponent implements OnInit {
 
   public updateClaim(structureId: string, isClaim: boolean): void {
     this._structureClaimsState[structureId] = isClaim;
+    this._structureClaims.next(this._structureClaimsState);
+  }
+
+  private async setClaimIndicators(isAdmin: boolean): Promise<void> {
+    for (const structure of this.structures) {
+      this._structureClaimsState[structure._id] = isAdmin ? await this.structureService.isClaimed(structure._id, null).toPromise() : true;
+    }
+
     this._structureClaims.next(this._structureClaimsState);
   }
 }
