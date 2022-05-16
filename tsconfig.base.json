@@ -2,9 +2,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "paths": {
-      "@gouvfr-anct/*": ["dist/@gouvfr-anct/*"],
-    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

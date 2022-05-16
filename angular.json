@@ -152,6 +152,46 @@
           }
         }
       }
+    },
+    "@gouvfr-anct/mediation-numerique": {
+      "projectType": "library",
+      "root": "projects/gouvfr-anct/mediation-numerique",
+      "sourceRoot": "projects/gouvfr-anct/mediation-numerique/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/gouvfr-anct/mediation-numerique/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/gouvfr-anct/mediation-numerique/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/gouvfr-anct/mediation-numerique/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "configPath": "jest.config.js",
+            "tsConfig": "tsconfig.spec.json",
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/gouvfr-anct/mediation-numerique/src/**/*.ts",
+              "projects/gouvfr-anct/mediation-numerique/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "pamn"
